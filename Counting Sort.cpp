@@ -40,21 +40,25 @@ bool decending(ll a, ll b) { return (a > b);}
 //int A[100], aa[] = {201, 345, 999, 333, 541, 573, 888};
 Start_Program
 {
-	int A[10000];
+	int A[10000],key = 0;
 	cout << "Enter number of index => ";
 	int n;
 	cin >> n;
 	for (int i = 0; i < n; ++i)
 	{
 		cin >> A[i];
+		if(key < A[i])
+		{
+			key = A[i];
+		}
 	}
-	sort(A, A + n);
-	int B[10000], C[A[n - 1] + 1] = {0};
+	//sort(A, A + n);
+	int B[10000], C[key + 1] = {0};
 	for (int i = 0; i < n; ++i)
 	{
 		++C[A[i]];
 	}
-	for (int i = 1; i <= A[n - 1]; ++i)
+	for (int i = 1; i <= key; ++i)
 	{
 		C[i] = C[i] + C[i - 1];
 	}
